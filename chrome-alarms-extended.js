@@ -26,7 +26,7 @@
 	Alarm.prototype = Object.create(EventEmitter.prototype);
 
 	Alarm.prototype.clear = function() {
-		window.chrome.alarms._clear(this.realName);
+		window.chrome.alarmsExtended._clear(this.realName);
 	};
 
 	var alarms = {};
@@ -50,7 +50,6 @@
 
 	window.chrome.alarmsExtended.setTimeout = function(cb, ms) {
 		var alarm = window.chrome.alarmsExtended.createWithCallback('timeout', { when: Date.now() + ms }, function() {
-			console.log(alarm);
 			cb();
 			alarm.clear();
 		});
