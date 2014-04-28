@@ -51,8 +51,8 @@
 	window.chrome.alarmsExtended.setTimeout = function(cb, ms) {
 		var alarm = window.chrome.alarmsExtended.createWithCallback('timeout', { when: Date.now() + ms }, function() {
 			console.log(alarm);
-			alarm.clear();
 			cb();
+			alarm.clear();
 		});
 	};
 
