@@ -48,6 +48,13 @@
 		return alarm;
 	};
 
+	window.chrome.setTimeout = function(cb, ms) {
+		var alarm = window.chrome.alarmsExtended.createWithCallback('timeout', { when: Date.now() + ms }, function() {
+			alarm.clear();
+			cb();
+		});
+	};
+
 	window.chrome.alarmsExtended._clear = function(realName) {
 		delete alarms[alarm.realName];
 	};
