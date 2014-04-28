@@ -26,7 +26,7 @@
 	Alarm.prototype = Object.create(EventEmitter.prototype);
 
 	Alarm.prototype.clear = function() {
-		window.chrome.alarms.clear(this.realName);
+		window.chrome.alarms._clear(this.realName);
 	};
 
 	var alarms = {};
